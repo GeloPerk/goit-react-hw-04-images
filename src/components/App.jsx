@@ -64,5 +64,5 @@ function App() {
     </AppWrap>
   );
 }
-// 00
+// 0
 export default App;
