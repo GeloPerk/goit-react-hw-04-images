@@ -27,15 +27,16 @@ function App() {
   useEffect(() => {
     if (searchText) {
       setIsLoading(true);
-      fetchImages(searchText, 1)
+      setPage(1);
+      fetchImages(searchText, page)
         .then(data => {
           setImages(data.hits);
+          setIsLoading(false);
+          setIsHidden(true);
           setTotalHits(data.totalHits);
-          setIsHidden(data.totalHits <= 12);
           setError(false);
         })
-        .catch(() => setError(true))
-        .finally(() => setIsLoading(false));
+        .catch(error => setError(true));
     }
   }, [searchText]);
 
