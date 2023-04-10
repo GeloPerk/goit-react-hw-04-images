@@ -38,7 +38,7 @@ function App() {
         })
         .catch(error => setError(true));
     }
-  }, [searchText]);
+  }, [searchText, page]);
 
   useEffect(() => {
     if (page > 1) {
@@ -51,7 +51,7 @@ function App() {
         .catch(() => setError(true))
         .finally(() => setIsLoading(false));
     }
-  }, [page]);
+  }, [page, searchText]);
 
   return (
     <AppWrap>
